@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfólio | Games & Cultura Pop</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #07080f;
+      --card: #101225;
+      --text: #f4f6ff;
+      --muted: #9aa3ff;
+      --accent: #7b6cff;   /* roxo gamer */
+      --accent-2: #ff3cac; /* rosa pop */
+      --accent-3: #00f5d4; /* neon */
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: radial-gradient(circle at top, #14174a, #07080f);
+      color: var(--text);
+      line-height: 1.6;
+	  /* ===== AJUSTE PARA LINKS FUNCIONAREM ===== */
+
+.card {
+  position: relative;
+}
+
+.card a,
+.card .btn-link {
+  position: relative;
+  z-index: 10;
+  pointer-events: auto;
+}
+
+/* impede camadas invisíveis de bloquearem o clique */
+.card::before,
+.card::after {
+  pointer-events: none;
+}
+
+/* opcional: estilo do botão */
+.btn-link {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.6rem 1.2rem;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+    }
+    header {
+      min-height: 100vh;
+      padding: 80px 20px;
+      max-width: 1200px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      align-items: center;
+      gap: 48px;
+    }
+    @media (max-width: 900px) {
+      header { grid-template-columns: 1fr; }
+    }
+    .badge {
+      background: linear-gradient(90deg, var(--accent), var(--accent-2), var(--accent-3));
+      color: #000;
+      padding: 6px 16px;
+      border-radius: 999px;
+      font-weight: 800;
+      width: fit-content;
+      font-size: 0.8rem;
+      margin-bottom: 18px;
+    }
+    header h1 {
+      font-size: clamp(2.8rem, 6vw, 4.2rem);
+      font-weight: 900;
+      line-height: 1.05;
+    }
+    header h1 span {
+      background: linear-gradient(135deg, var(--accent-2), var(--accent-3));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    header p {
+      color: #d6dbff;
+      max-width: 720px;
+      font-size: 1.1rem;
+      margin-top: 22px;
+    }
+    nav {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 34px;
+    }
+    nav a {
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 700;
+      padding: 10px 18px;
+      border-radius: 14px;
+      background: rgba(255,255,255,0.06);
+      backdrop-filter: blur(6px);
+      transition: all .25s ease;
+    }
+    nav a:hover {
+      transform: translateY(-4px) scale(1.05);
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: #000;
+    }
+    .photo-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .photo {
+      width: 280px;
+      height: 380px;
+      border-radius: 32px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2), var(--accent-3));
+      padding: 4px;
+      box-shadow: 0 0 40px rgba(123,108,255,0.4);
+    }
+    .photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 28px;
+    }
+    section {
+      max-width: 1200px;
+      margin: auto;
+      padding: 90px 20px;
+      display: grid;
+      gap: 42px;
+    }
+    section h2 {
+      font-size: 2.4rem;
+      font-weight: 900;
+    }
+    .highlight {
+      font-size: 1.35rem;
+      font-weight: 700;
+      max-width: 900px;
+      color: #eef0ff;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 30px;
+    }
+    .card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02));
+      border-radius: 26px;
+      padding: 30px;
+      display: grid;
+      gap: 14px;
+      transition: all .3s ease;
+      border: 1px solid rgba(255,255,255,0.08);
+      position: relative;
+      overflow: hidden;
+    }
+    .card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(120deg, transparent, rgba(255,255,255,0.12), transparent);
+      opacity: 0;
+      transition: opacity .3s ease;
+    }
+    .card:hover::after { opacity: 1; }
+    .card:hover {
+      transform: translateY(-10px) scale(1.02);
+      border-color: var(--accent-2);
+    }
+    .tag {
+      font-size: 0.75rem;
+      font-weight: 900;
+      letter-spacing: .06em;
+      color: var(--accent-3);
+    }
+    .card span { color: var(--muted); font-size: 0.9rem; }
+    .card a {
+      margin-top: 12px;
+      width: fit-content;
+      color: #000;
+      background: linear-gradient(135deg, var(--accent-2), var(--accent-3));
+      padding: 12px 18px;
+      border-radius: 14px;
+      text-decoration: none;
+      font-weight: 800;
+    }
+    .preview {
+      margin-top: 16px;
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.12);
+      height: 200px;
+    }
+    .preview iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    footer {
+      text-align: center;
+      padding: 60px 20px;
+      color: #aab0ff;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+
+<header id="inicio">
+  <div>
+    <div class="badge">GAMES • CULTURA POP • JORNALISMO DIGITAL</div>
+    <h1>Eu sou <span>Julia Gabriela Ribeiro</span></h1>
+    <p>Jornalista em formação especializada em <strong>games, esports e cultura pop</strong>, com experiência em produção de matérias, coberturas, conteúdos para redes sociais e jornalismo multiplataforma.</p>
+    <p>Estou no <strong>8º período de Jornalismo em Multimeios</strong>, pela <strong>Universidade do Estado da Bahia (UNEB)</strong>, em Juazeiro. Atuo como redatora do portal <strong>GeekPop News</strong> desde 2023 e atualmente faço parte da editoria de games.</p>
+    <p>Tenho experiência em <strong>telejornalismo</strong>, adquirida durante 1 ano como estagiária na <strong>TV São Francisco</strong>, em Juazeiro, onde participei da rotina de produção de pautas do <em>Bahia Meio Dia</em>.</p>
+    <p>Fui estagiária por 3 meses no <strong>iBahia</strong>, integrando a editoria do interior, com pautas sobre a região Norte da Bahia e, posteriormente, matérias voltadas ao entretenimento.</p>
+    <p>Atualmente, sigo ampliando minha formação ao adquirir experiência em <strong>assessoria de comunicação</strong>.</p>
+    <nav>
+      <a href="#materias">🎮 Matérias</a>
+      <a href="#releases">📄 Releases</a>
+      <a href="#videos">🎥 Vídeos</a>
+      <a href="#tv">📺 TV</a>
+      <a href="#contato">✨ Contato</a>
+    </nav>
+  </div>
+
+  <div class="photo-wrapper">
+    <div class="photo">
+      <img src="C:\Users\JULIA\Desktop\Portfolio\Perfil\Perfil.jpg" alt="Foto de perfil">
+    </div>
+  </div>
+</header>
+
+<section id="materias">
+  <h2>🎮 Matérias | Games & Cultura Pop</h2>
+  <p class="highlight">
+    Produção jornalística voltada a games, esports e cultura pop, com publicações em portais especializados.
+  </p>
+
+  <div class="grid">
+
+    <div class="card">
+      <div class="tag">PORTAL</div>
+      <h3>Entrevista com Venturelli, desenvolvedor do jogo Hell Clock</h3>
+      <span>GeekPop News • 2025</span>
+      <p>
+        Um dos desenvolvedores do jogo Hell Clock, Venturelli, conversa com o GeekPop News
+        e conta um pouco sobre o processo para a criação do game.
+      </p>
+
+      <a
+        class="btn-link"
+        href="https://geekpopnews.com.br/entrevista-com-venturelli-desenvolvedor-do-jogo-hell-clock/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Ler matéria no portal
+      </a>
+    </div>
+
+    <div class="card portal">
+      <div class="tag">SITE</div>
+      <h3>Portal onde publico</h3>
+      <span>Colaborações e produção contínua</span>
+      <p>
+        Espaço dedicado ao portal em que atuo como redatora, reunindo matérias publicadas.
+      </p>
+
+      <a
+        class="btn-link"
+        href="https://geekpopnews.com.br/author/juliagabriela/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Acessar portal
+      </a>
+    </div>
+
+  </div>
+  
+</section>
+
+<section id="releases">
+  <h2>📄 Releases & Assessoria Institucional</h2>
+  <p class="highlight">Produção de releases institucionais, textos oficiais e materiais de apoio à comunicação organizacional.</p>
+  <div class="grid">
+    <div class="card">
+      <div class="tag">INSTITUCIONAL</div>
+      <h3>UNEB celebra 65 anos da Faculdade de Agronomia do Médio São Francisco (FAMESF)</h3>
+      <span> UNEB • 2025</span>
+      <p>Texto producido na ASCOM do DTCS Campus III.</p>
+      <a href="https://agenciadecomunicacao.uneb.br/uneb-celebra-65-anos-da-faculdade-de-agronomia-do-medio-sao-francisco-famesf/" target="_blank">Ver release</a>
+    </div>
+  </div>
+  
+</section>
+<!-- VÍDEOS | CULTURAL & INSTITUCIONAL -->
+<section id="videos">
+  <h2>🎥 Vídeos | Conteúdo Cultural & Institucional</h2>
+  <p class="highlight">
+    Produção de vídeos informativos e institucionais, com foco em cultura, projetos sociais e comunicação pública.
+  </p>
+
+  <div class="grid">
+    <div class="card">
+      <div class="tag">VÍDEO INSTITUCIONAL</div>
+      <h3>Boas Festas DTCS Campus III </h3>
+      <span>Roteiro • Apresentação • Produção</span>
+      <p>Reels produzido na ASCOM do DTCS Campus III.</p>
+      <a href="https://drive.google.com/file/d/1Ll5zBQ12sYEoQphojv4uBzCNVEIMuqlM/view?usp=sharing" target="_blank">Assistir</a>
+    </div>
+  </div>
+</section>
+
+<!-- VÍDEOS CULTURAIS -->
+<section id="videos-culturais">
+  <h2>🎭 Vídeos Culturais</h2>
+  <p class="highlight">
+    Produção de vídeos voltados à cultura, memória, eventos e manifestações artísticas.
+  </p>
+
+  <div class="grid">
+    <div class="card">
+      <div class="tag">VÍDEO CULTURAL</div>
+      <h3>Your Name: sonho ou realidade</h3>
+      <span>Roteiro • Produção • Edição</span>
+      <p>Reels produzido para o quadro "Anime Week", com indicação de animes.</p>
+      <a href="https://drive.google.com/file/d/1naW2Smy9ZOwJBUNeiY2VFbiRt7AbtpAd/view?usp=sharing" target="_blank">Assistir vídeo</a>
+    </div>
+  </div>
+</section>
+
+<!-- VÍDEOS | PROJETO DE EXTENSÃO -->
+<section id="videos-extensao">
+  <h2>🌱 Vídeos | Projeto de Extensão</h2>
+  <p class="highlight">
+    Conteúdos audiovisuais produzidos no contexto de projetos de extensão universitária.
+  </p>
+
+  <div class="grid">
+    <div class="card">
+      <div class="tag">EXTENSÃO</div>
+      <h3>Giro Uneb</h3>
+      <span> UNEB • 2025</span>
+      <p>O Giro Uneb é um quadro de notícias da semana produzido pelos alunos que fazem parte do Projeto de Extensão: TV Uneb</p>
+      <a href="https://drive.google.com/file/d/1UYLKrmw7RLULjwGJT1wvVFxFtj7_IWZ6/view?usp=sharing" target="_blank">Assistir vídeo</a>
+    </div>
+  </div>
+  
+</section>
+
+<section id="tv">
+  <h2>📺 Reportagens de TV</h2>
+  <p class="highlight">Experiência em telejornalismo e produção de reportagens com foco informativo e institucional.</p>
+  <div class="grid">
+    <div class="card">
+      <div class="tag">TELEJORNALISMO</div>
+      <h3>Salão de Artes destaca talentos locais com premiação</h3>
+      <span>TV Uneb Juazeiro • Projeto de Extensão • 2025</span>
+      <p>Nos dias 4 e 6 de dezembro, o Departamento de Ciências  Humanas, da Universidade do Estado da Bahia de Juazeiro, realizou a nona edição do Salão de Artes Universitário Regional. O evento reuniu diversas expressões artísticas, com destaque para a valorização de talentos locais e a premiação de treze obras.</p>
+      <a href="https://www.youtube.com/watch?v=v1ajTLDQgEY" target="_blank"> Ver reportagem</a>
+    </div>
+  </div>
+</section>
+
+<section id="site-proprio">
+  <h2>🌐 Site</h2>
+  <p class="highlight">Projeto desenvolvido pelos alunos do 8º período, reunindo produção de conteúdo, curadoria e identidade editorial própria. Site desenvolvido por Julia Gabriela Ribeiro, Arielle Lima, Alexandre José e Emanuele Carvalho.</p>
+  <div class="grid">
+    <div class="card">
+      <div class="tag">SITE HQ</div>
+      <h3>ECODISSEIA</h3>
+      <span>Função: idealização • conteúdo • edição</span>
+      <p>HQ realizada na disciplina de Planejamento Visual, soobre a crise climática que atinge o Brasil. ECODISSEIA foi finalista no EXPOCOM Nordeste 2025.</p>
+      <a href="https://juugabss.github.io/hq-ecodisseia/index.html" target="_blank">Acessar site</a>
+      <div class="preview">
+        <iframe src="https://juugabss.github.io/hq-ecodisseia/index.html"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contato">
+  <h2>✨ Vamos criar algo juntos?</h2>
+  <div class="card">
+    <p><strong>Email:</strong> juliagabrielaribjorna@gmail.com</p>
+    <p><strong>LinkedIn:</strong> https://www.linkedin.com/in/juliagabriela16/</p>
+    <p><strong>Portfólio:</strong> criado e idealizado por Julia Gabriela Ribeiro. Atualizado constantemente</p>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 • Portfólio Jornalístico • Games & Cultura Pop</p>
+</footer>
+
+</body>
+</html>
